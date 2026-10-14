@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { PlayerProfileBar } from './components/PlayerProfileBar';
 import { CalculatorId } from './types/osrs';
 import { Sparkles } from 'lucide-react';
 
@@ -13,6 +14,7 @@ export const App: React.FC = () => {
         activeCalc={activeCalc}
         onSelectCalc={setActiveCalc}
         onOpenCommandPalette={() => {}}
+        rsnSlot={<PlayerProfileBar />}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
