@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { PlayerProfileBar } from './components/PlayerProfileBar';
+import { BirdhouseCalculator } from './calculators/BirdhouseCalculator';
 import { CalculatorId } from './types/osrs';
 import { Sparkles } from 'lucide-react';
 
@@ -34,25 +35,14 @@ export const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Placeholder container where active calculator mounts */}
-        <div className="osrs-box p-6 border border-stone-800 rounded-xl bg-stone-900/60">
-          <div className="flex items-center justify-between pb-4 mb-6 border-b border-stone-800">
-            <div>
-              <h2 className="text-lg font-bold text-amber-300 capitalize">
-                {activeCalc.replace('-', ' ')} Calculator
-              </h2>
-              <p className="text-xs text-stone-400">
-                Calculator view currently active
-              </p>
+        {/* Calculator Mounting Area */}
+        <div className="osrs-box p-6 border border-stone-800 rounded-xl bg-stone-900/60 shadow-xl">
+          {activeCalc === 'birdhouse' && <BirdhouseCalculator />}
+          {activeCalc !== 'birdhouse' && (
+            <div className="text-sm text-stone-400 py-8 text-center">
+              Loading {activeCalc.replace('-', ' ')} calculator...
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-emerald-400 font-medium">OSRS Wiki GE Feed Active</span>
-            </div>
-          </div>
-          <div className="text-sm text-stone-300">
-            Initializing tools and edge pricing engine...
-          </div>
+          )}
         </div>
       </main>
 
