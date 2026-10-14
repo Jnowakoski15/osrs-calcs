@@ -43,6 +43,10 @@ export const App: React.FC = () => {
                 Calculator view currently active
               </p>
             </div>
+            <div className="flex items-center gap-2 text-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-emerald-400 font-medium">OSRS Wiki GE Feed Active</span>
+            </div>
           </div>
           <div className="text-sm text-stone-300">
             Initializing tools and edge pricing engine...
