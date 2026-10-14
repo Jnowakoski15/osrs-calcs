@@ -9,7 +9,7 @@ interface QuickChipsProps {
 export const QuickChips: React.FC<QuickChipsProps> = ({ options, onSelect, activeValue }) => {
   return (
     <div className="flex flex-wrap items-center gap-1.5 my-2">
-      <span className="text-xs text-stone-400 font-medium mr-1">Quick:</span>
+      <span className="text-[11px] text-[#8a7b6f] font-semibold mr-1">Quick:</span>
       {options.map((opt) => {
         const isActive = activeValue !== undefined && activeValue === opt.value;
         return (
@@ -17,10 +17,10 @@ export const QuickChips: React.FC<QuickChipsProps> = ({ options, onSelect, activ
             key={opt.label}
             type="button"
             onClick={() => onSelect(opt.value)}
-            className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all cursor-pointer border ${
+            className={`px-2.5 py-1 text-xs font-semibold rounded transition-all cursor-pointer border ${
               isActive
-                ? 'bg-amber-500 text-stone-950 border-amber-400 shadow-sm font-semibold'
-                : 'bg-stone-900 text-stone-300 border-stone-800 hover:bg-stone-800 hover:text-amber-300 hover:border-amber-600/50'
+                ? 'bg-gradient-to-b from-[#4a361c] to-[#261b0c] text-amber-300 border-amber-500 shadow-sm ring-1 ring-amber-500/40'
+                : 'bg-[#15110e] text-[#c4b7ad] border-[#29211a] hover:bg-[#211a15] hover:text-amber-200 hover:border-[#4d3d30]'
             }`}
           >
             {opt.label}

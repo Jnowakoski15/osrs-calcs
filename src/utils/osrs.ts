@@ -37,6 +37,20 @@ export function formatGp(amount: number): string {
   return `${sign}${Math.round(abs).toLocaleString()}`;
 }
 
+/**
+ * Authentic Old School RuneScape coin stack color coding:
+ * - Negative amounts: Red (#f87171)
+ * - Under 100,000 GP: Classic OSRS Yellow (#facc15)
+ * - 100,000 to 9,999,999 GP: Classic OSRS White (#ffffff)
+ * - 10,000,000+ GP: Classic OSRS Green (#00ff80)
+ */
+export function getGpColorClass(amount: number): string {
+  if (amount < 0) return 'text-rose-400';
+  if (amount >= 10_000_000) return 'text-[#00ff80] drop-shadow-[0_0_8px_rgba(0,255,128,0.3)]';
+  if (amount >= 100_000) return 'text-white drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]';
+  return 'text-amber-400';
+}
+
 export function formatNumber(num: number): string {
   return Math.round(num).toLocaleString();
 }
